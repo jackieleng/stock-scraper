@@ -1,6 +1,6 @@
-# stock_scraper
+# stock-scraper
 
-Run with scrapy:
+Run:
 
 ```
 $ scrapy crawl yahoo_finance
