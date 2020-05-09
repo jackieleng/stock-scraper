@@ -3,5 +3,5 @@
 Run with scrapy:
 
 ```
-    $ scrapy crawl yahoo_finance
+$ scrapy crawl yahoo_finance
 ```
