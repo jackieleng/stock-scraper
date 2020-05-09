@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
+from typing import Tuple
 
 import scrapy
 from twisted.python.failure import Failure
@@ -7,13 +8,12 @@ from twisted.python.failure import Failure
 from ..items import StockScraperItem
 
 
-pattern_str = r"(?P<company_name>.+)\s\((?P<ticker>\^?.+)\)"
-pattern = re.compile(pattern_str)
+PATTERN = re.compile(r"(?P<company_name>.+)\s\((?P<ticker>\^?.+)\)")
 
 
-def parse_name(name_plus_ticker):
+def parse_name(name_plus_ticker: str) -> Tuple[str, str]:
     """Extract company name and ticker symbol from string."""
-    match = pattern.match(name_plus_ticker)
+    match = PATTERN.match(name_plus_ticker)
     if match:
         company_name = match.group('company_name')
         ticker_symbol = match.group('ticker')
